@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mati 💗</title>
+    <link rel="stylesheet" href="flower.css" />
+
+    <style>
+
+      body {
+  margin: 0;
+  padding-top: 20px;
+}
+.flower {
+  margin-top: 380px; /* ⬅️ KLUCZOWA LINIJKA */
+}
+
+
+      audio {
+        display: block;
+        margin: 20px auto;
+      }
+
+      /* ❤️ Pulsowanie napisu jak serce */
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.1); }
+        60% { transform: scale(1); }
+        100% { transform: scale(1); }
+      }
+
+      #loveText {
+        animation: heartbeat 1.2s infinite;
+      }
+      #thankyou {
+  margin-bottom: 5px;
+}
+
+
+      /* ❤️ LATAJĄCE SERDUSZKA (zostają tylko dla przycisku z muzyką) */
+      .heart {
+        position: fixed;
+        bottom: 0;
+        font-size: 25px;
+        pointer-events: none;
+        animation: flyUp 3s linear forwards;
+      }
+
+      @keyframes flyUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(50px) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* 💌 WALENTYNKOWA KARTA (ładniej) */
+#summary {
+  display: none;
+  text-align: center;
+  margin: 5px auto 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 650px;
+  background: linear-gradient(180deg, #fff5f8, #fff0f5);
+  border-radius: 25px;
+  border: 2px solid #ff8fa3;
+  box-shadow: 0 0 15px rgba(255, 100, 150, 0.3);
+  color: #d63384;
+  font-size: 18px;
+}
+#summary h2 {
+  margin-top: 5px;
+  color: #ff5f8a;
+}
+
+
+
+
+
+      /* ✍️ ANIMACJA PISANIA */
+      #typedText {
+        display: inline-block;
+        white-space: pre-line;
+        overflow: hidden;
+        border-right: 2px solid #ff5f8a;
+        padding-right: 5px;
+        animation: blinkCursor 0.8s infinite;
+      }
+
+      @keyframes blinkCursor {
+        50% {
+          border-color: transparent;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <div id="thankyou">
+      <b>Dzięki lala za to że będziesz moją Walentynką&lt;3</b>
+    </div>
+
+    <!-- WALENTYNKOWA KARTA (WYŻEJ NA STRONIE) -->
+    <div id="summary">
+      <h2>Twoje wybory na wspólny wieczór 💗</h2>
+      <div id="typedText"></div>
+    </div>
+
+    <div class="flower">
+      <div class="f-wrapper">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--yellow"></div>
+        </div>
+      </div>
+
+      <div class="f-wrapper f-wrapper--2">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--pink"></div>
+        </div>
+      </div>
+
+      <div class="f-wrapper f-wrapper--3">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--purple"></div>
+        </div>
+      </div>
+
+      <div class="flower__glass"></div>
+    </div>
+
+    <audio id="myAudio" loop>
+      <source src="ez.mp3" type="audio/mpeg" />
+    </audio>
+
+   <button id="playBtn" style="
+      display:block;
+      margin:15px auto;
+      padding:10px 20px;
+      border:none;
+      border-radius:25px;
+      background:#ff8fa3;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow: 0 0 8px rgba(255, 100, 150, 0.4);
+    ">
+      We no wciśnij 💗
+</button>
+
+
+    <button id="showPlansBtn" style="
+      display:block;
+      margin:20px auto;
+      padding:10px 20px;
+      border:none;
+      border-radius:20px;
+      background:#ff8fa3;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    ">
+      Pokaż nasze plany 💗
+    </button>
+
+    <div id="loveText" style="
+      display:none;
+      text-align:center;
+      font-size:22px;
+      font-weight:bold;
+      color:#d63384;
+      margin-top:15px;
+    ">
+      Do 3 razy sztuka :)  💗
+    </div>
+
+    <script>
+      const audio = document.getElementById("myAudio");
+      const btn = document.getElementById("playBtn");
+      const loveText = document.getElementById("loveText");
+
+      btn.addEventListener("click", function() {
+        audio.play();
+        btn.style.display = "none";
+        loveText.style.display = "block";
+
+        // 💥 Wybuch serduszek (tylko tutaj, nie w podsumowaniu)
+        for (let i = 0; i < 30; i++) {
+          setTimeout(createHeart, i * 100);
+        }
+      });
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💗";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+
+      document.getElementById("showPlansBtn").addEventListener("click", function() {
+
+        // Ukryj kwiatka
+        const flower = document.querySelector(".flower");
+flower.style.display = "none";
+
+
+
+        // Pokaż kartę
+        const card = document.getElementById("summary");
+        card.style.display = "block";
+
+        // Pobierz zapisane dane
+        const date = localStorage.getItem("chosenDate") || "Nie wybrano";
+        const food = JSON.parse(localStorage.getItem("foodChoices") || "[]");
+        const dessert = JSON.parse(localStorage.getItem("dessertChoices") || "[]");
+        const activities = JSON.parse(localStorage.getItem("activityChoices") || "[]");
+
+        // Tekst do animacji pisania
+        const fullText = `
+📅 Data: ${date}
+
+🍔 Jedzenie: ${food.join(", ") || "Brak"}
+
+🍰 Deser: ${dessert.join(", ") || "Brak"}
+
+🎬 Aktywności: ${activities.join(", ") || "Brak"}
+
+Do zoba lala 💗
+        `;
+
+        const typingElement = document.getElementById("typedText");
+        typingElement.textContent = "";
+        let index = 0;
+
+        function typeText() {
+          if (index < fullText.length) {
+            typingElement.textContent += fullText.charAt(index);
+            index++;
+            setTimeout(typeText, 50); // tempo pisania
+          }
+        }
+
+        typeText();
+      });
+    </script>
+
+    <iframe
+      src="music.html"
+      style="position:fixed; bottom:0; left:0; width:0; height:0; border:none; visibility:hidden;">
+    </iframe>
+
+  </body>
+</html>
